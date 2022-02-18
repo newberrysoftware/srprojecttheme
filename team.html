@@ -68,14 +68,14 @@
                         <span>Software Engineer</span>
                       </div>
                       <div>
-                        <img src="assets/images/profile.jpg" alt="">
+                        <img src="assets/images/chrisprofile.jpg" alt="">
                         <h4>Christopher Newberry</h4>
-                        <span>Software Engineer</span>
+                        <span>Founder of Newberry Software</span>
                       </div>
                       <div>
-                        <img src="assets/images/profile.jpg" alt="">
+                        <img src="assets/images/drewprofile.png" alt="">
                         <h4>Drew Dunkelberger</h4>
-                        <span>Computer Scientist</span>
+                        <span>Senior Design Team Lead; Full-Stack Developer</span>
                       </div>
                       <div>
                         <img src="assets/images/profile.jpg" alt="">
@@ -95,7 +95,7 @@
                         <div>
                           <div class="left-content">
                             <h4>Carlo Campanini</h4>
-                            <p>Software engineer who has experience working with AWS. Enjoys playing soccer at Florida Tech and developing alongside team members at Who We Play For.</p>
+                            <p>Software engineer proficient in AWS. Enjoys playing soccer at Florida Tech and developing alongside team members at Who We Play For.</p>
                             <div class="text-button">
                               <a href="mailto:ccampanini2018@my.fit.edu">Email Carlo</a>
                             </div>
@@ -109,13 +109,13 @@
                         <div>
                           <div class="left-content">
                             <h4>Christopher Newberry</h4>
-                            <p>Chief Executive Officer of <a href="https://www.newberrysoftware.com">Newberry Software</a><br>"Always challenge current assumptions and beliefs in an effort to break through to a new level of thinking that may take you out of your comfort zone.” ―Roger Connors</p>
+                            <p><strong>Chief Executive Officer of <a href="https://www.newberrysoftware.com">Newberry Software</a></strong><br>"Always challenge current assumptions and beliefs in an effort to break through to a new level of thinking that may take you out of your comfort zone.” ―Roger Connors</p>
                             <span><a href="https://www.newberrysoftware.com">Company Website</a></span>
                             <span><a href="mailto:contact@newberrysoftware.com">Work Email</a></span>
                             <span class="last-span"><a href="mailto:cnewberry2018@my.fit.edu">University Email</a></span>
                           </div>
                           <div class="right-image">
-                            <img src="assets/images/profile2.jpg" alt="">
+                            <img src="assets/images/chrisbaseball.jpg" alt="">
                           </div>
                         </div>
                       </li>
@@ -123,10 +123,16 @@
                         <div>
                           <div class="left-content">
                             <h4>Drew Dunkelberger</h4>
-                            <p>A computer scientist at heart, a software engineer in practice. I hope to put my skills to good use and make a positive impact in our world; working with Who We Play For more than fulfills that purpose.</p>
-                            <div class="text-button">
-                              <a href="mailto:ddunkelberger@my.fit.edu">Contact Member</a>
-                            </div>
+                              <p><strong>Senior Design Team Lead; Full-Stack Developer</strong><br>A computer scientist at heart, a software engineer in practice. I hope to put my skills to good use and make a positive impact in our world; working with Who We Play For more than fulfills that purpose.</p>
+                            
+                            <span>
+                                <a href="https://www.linkedin.com/in/drew-dunkelberger-82993a172/">LinkedIn</a>
+                            </span>
+                            
+                            <span class="last-span">
+                                <a href="mailto:ddunkelberger@my.fit.edu">University Email</a>
+                            </span>
+                              
                           </div>
                           <div class="right-image">
                             <img src="assets/images/profile2.jpg" alt="">
@@ -151,7 +157,7 @@
                         <div>
                           <div class="left-content">
                             <h4>Noah Wilson</h4>
-                            <p>Software engineer with experience developing websites. Enjoys learning at Florida Tech and working with Who We Play For.</p>
+                            <p>Software engineer at Florida Tech. Enjoys learning and working with Who We Play For.</p>
                             <div class="text-button">
                               <a href="mailto:nwilson2018@my.fit.edu">Contact Member</a>
                             </div>
@@ -211,47 +217,47 @@
       //according to loftblog tut
       $('.nav li:first').addClass('active');
       
-      var showSection = function showSection(section, isAnimate) {
-        var
-        direction = section.replace(/#/, ''),
-        reqSection = $('.section').filter('[data-section="' + direction + '"]'),
-        reqSectionPos = reqSection.offset().top - 0;
-      
-        if (isAnimate) {
-          $('body, html').animate({
-            scrollTop: reqSectionPos },
-          800);
-        } else {
-          $('body, html').scrollTop(reqSectionPos);
-        }
-      
-      };
-      
-      var checkSection = function checkSection() {
-        $('.section').each(function () {
+        var showSection = function showSection(section, isAnimate) {
           var
-          $this = $(this),
-          topEdge = $this.offset().top - 80,
-          bottomEdge = topEdge + $this.height(),
-          wScroll = $(window).scrollTop();
-          if (topEdge < wScroll && bottomEdge > wScroll) {
-            var
-            currentId = $this.data('section'),
-            reqLink = $('a').filter('[href*=\\#' + currentId + ']');
-            reqLink.closest('li').addClass('active').
-            siblings().removeClass('active');
+          direction = section.replace(/#/, ''),
+          reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+          reqSectionPos = reqSection.offset().top - 0;
+
+          if (isAnimate) {
+            $('body, html').animate({
+              scrollTop: reqSectionPos },
+            800);
+          } else {
+            $('body, html').scrollTop(reqSectionPos);
           }
+
+        };
+
+        var checkSection = function checkSection() {
+          $('.section').each(function () {
+            var
+            $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+              var
+              currentId = $this.data('section'),
+              reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+              reqLink.closest('li').addClass('active').
+              siblings().removeClass('active');
+            }
+          });
+        };
+
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+          e.preventDefault();
+          showSection($(this).attr('href'), true);
         });
-      };
-      
-      $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
-        e.preventDefault();
-        showSection($(this).attr('href'), true);
-      });
-      
-      $(window).scroll(function () {
-        checkSection();
-      });
+
+        $(window).scroll(function () {
+          checkSection();
+        });
     </script>
   </body>
 </html>
